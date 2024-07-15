@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ksenija_app_dobar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int prviBroj, drugiBroj, brojOpcije;
+
+            Console.WriteLine();
+            Console.WriteLine("Program je jednostavno računanje s opcijama iz izbornika");
+            Console.WriteLine("________________________________________________________");
+            Console.WriteLine();
+
+            Console.WriteLine("");
+            Console.WriteLine("Unesi prvi broj");
+            prviBroj = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Unesi drugi broj");
+            drugiBroj = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Popis dostupnih opcija: \n 1 - Zbrajanje. \n 2 - Oduzimanje \n 3 - Množenje \n 4 - Dijeljenje \n 5 - Izlaz iz programa");
+            Console.WriteLine("\n Odaberite jednu od opcija: ");
+
+            brojOpcije = Convert.ToInt32(Console.ReadLine());
+
+            switch(brojOpcije)
+            {
+                case 1:
+                    Console.WriteLine("Zbroj brojeva {0} i {1} je {2}", prviBroj, drugiBroj, prviBroj + drugiBroj);
+                    break;
+                case 2:
+                    Console.WriteLine("Razlika brojeva {0} i {1} je {2}", prviBroj, drugiBroj, prviBroj - drugiBroj);
+                    break;
+                case 3:
+                    Console.WriteLine("Umnožak brojeva {0} i {1} je {2}", prviBroj, drugiBroj, prviBroj * drugiBroj);
+                    break;
+                case 4:
+                    if (prviBroj == 0 || drugiBroj==0)
+                        Console.WriteLine("Nije dobro dijeliti s nulom :) \n");
+                    else
+                        Console.WriteLine("Kvocijent brojeva {0} i {1} je {2}", prviBroj, drugiBroj, (float)prviBroj / (float)drugiBroj);
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine("Opcija nije valjana, pokušaj ponovno");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
