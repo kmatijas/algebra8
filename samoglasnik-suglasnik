@@ -1,0 +1,60 @@
+using System;
+
+namespace Ksenija_app_dobra
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Program koji će provjeriti je li uneseno slovo samoglasnik ili suglasnik
+            char slovo; 
+            Console.WriteLine("Dobar dan! Zamoliti ću Vas da unesete jedno slovo, a naša aplikacija će provjeriti je li to samoglasnik ili suglasnik:");
+            slovo = Convert.ToChar(Console.ReadLine());
+
+            if (slovo == 'a' || slovo == 'e' || slovo == 'i' || slovo == 'o' || slovo == 'u')
+                Console.WriteLine("Slovo je samoglasnik");
+            else
+                Console.WriteLine("Slovo je suglasnik");
+            Console.ReadKey();
+
+
+            switch (slovo)
+            {
+                case 'a':
+                    Console.WriteLine("Sčpbp je samoglasnik");
+                    break;
+                case 'e':
+                    Console.WriteLine("Sčpbp je samoglasnik");
+                    break;
+                case 'i':
+                    Console.WriteLine("Sčpbp je samoglasnik");
+                    break;
+                case 'o':
+                    Console.WriteLine("Sčpbp je samoglasnik");
+                    break;
+                case 'u':
+                    Console.WriteLine("Sčpbp je samoglasnik");
+                    break;
+                default:
+                    Console.WriteLine("Slovo nije suglasnik");
+                    break;
+            }
+
+            //ovdje je prijem istog, ali kraće riješenje
+            switch (slovo)
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    Console.WriteLine("Slovo je samoglasnik");
+                    break;
+                default:
+                    Console.WriteLine("Slovo nije suglasnik");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
