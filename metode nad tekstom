@@ -1,0 +1,169 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace metode
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            /*
+             * String je tip niza znakova (slova, brojevi, interpunkcijski ili ostali znakovi)
+             Metode su akcije koje se događaju, imamo neke ugrađene za tekst:
+            1. ToLwer () -> naziv_varijable.ToLower();
+            2. ToUpper () -> naziv_varijable.ToUpper();
+            3. SubString () -> naziv_varijable.SubString(0,5); -> vraća od 1 do 6 znaka
+            4. Replace ()
+            5. Split() 
+            6. Concat () -> spajanje slova
+             Svojstvo Lenght
+
+            Možeš probati napraviti app koji računa koliko postoji znakova u tekstu.
+
+             */
+
+            Console.WriteLine("Danas radimo metode nad tekstom");
+            Console.WriteLine("_______________________________");
+
+            string recenica = "Danas je prevruč dan i ne mogu disati";
+            Console.WriteLine(recenica);
+
+            string abeceda = "ABCČĆDDŽĐEFGHIJKLLJMNNJOPRSŠTUVZŽ";
+            //primjer Lenght
+            Console.WriteLine("Dužina teksta varijable abeceda je " + abeceda.Length + "znakova");
+
+
+            // spajanje teksta -> konkatenacija
+            string ime = "Pero";
+            string prezime = "Perić";
+            string imeIPrezime = ime + " " + prezime;
+
+            Console.WriteLine(imeIPrezime);
+
+            string urediString = " Na vrh brda, mrda, vrba ?!?!?!?!";
+
+            Console.WriteLine(urediString.ToLower());
+            Console.WriteLine(urediString.ToUpper());
+
+            char slovo1 = 'p';
+            char slovo2 = 'o';
+            char slovo3 = 'n';
+            char slovo4 = 'e';
+            char slovo5 = 'd';
+            char slovo6 = 'j';
+            char slovo7 = 'e';
+            char slovo8 = 'l';
+            char slovo9 = 'j';
+            char slovo10 = 'a';
+            char slovo11 = 'k';
+
+            //način spajanja slova - ne baš najbolji (čudan)
+            //
+            Console.WriteLine("Danas je " + slovo1 + slovo2 + slovo3 + slovo4 + slovo5 + slovo6 + slovo7 + slovo8 + slovo9 + slovo10 + slovo11);
+
+            string spojenaSlova = slovo1 + "" + slovo2 + slovo3 + slovo4 + slovo5 + slovo6 + slovo7 + slovo8 + slovo9 + slovo10 + slovo11;
+            Console.WriteLine(spojenaSlova);
+
+            //Spajanje slova pomoći metode Concat()
+            //klasa string -> ima puno metoda, najčešće se koristi je li neki tekst prazan (ne koristiti empty)
+            var spajanjeSlovaSMetodom = string.Concat(slovo1, slovo2, slovo9, slovo4, slovo5, slovo6, slovo7, slovo8, slovo9, slovo10, slovo11);
+            Console.WriteLine(spajanjeSlovaSMetodom);
+
+
+            /*
+             *specijalni znakovi
+             */
+
+            // \ backslash se koristi da možemo koristiti znakove koje nam inače sustav ne dopušta
+            string recenicaSaSpecijalnimZnakovima = "Ana \"voli\" Milovana";
+            Console.WriteLine(recenicaSaSpecijalnimZnakovima);
+
+            string recenicaSaBlackSlasheom = "Ovaj znak \\ se naziva obrnuta kosa crta";
+            Console.WriteLine(recenicaSaBlackSlasheom);
+
+            string recenicaSaApostrofom = "Jes'l dobro?";
+            Console.WriteLine(recenicaSaApostrofom);
+
+            int cijeliBroj = 11;
+            double doubleBroj = 3.08D;
+            bool vaniJeVruce = true;
+
+            Console.WriteLine(cijeliBroj.ToString());
+            Console.WriteLine(doubleBroj.ToString());
+            Console.WriteLine(vaniJeVruce.ToString());
+
+            string x = "11";
+            string y = "36";
+
+            string z = x + y;
+
+            Console.WriteLine("{0} + {1} = {2}", x, y, z);
+
+            int xUInt = Convert.ToInt32(x);
+            int yUInt = Convert.ToInt32(y);
+            int noviZbroj = xUInt + yUInt;
+
+            Console.WriteLine("{0} + {1} = {2}", xUInt, yUInt, noviZbroj);
+
+
+            char i = 'š';
+            char j = '8';
+            int pretvoriCharUInt = (int)Char.GetNumericValue(i);
+            int zbrojZnakova = i + j;
+            //char je pretvorio u ascii kod i onda ih zbrojio looool
+            Console.WriteLine(zbrojZnakova);
+            Console.WriteLine("Int vrijednost char znaka: " + (int)i);
+
+            var recenica2 = "Ovo je neka druga rečenica";
+
+            Console.WriteLine(recenica2.Substring(0,5));
+
+            /* ovo nisam stigla do kraja
+             * Console.WriteLine("Ispiši članove od 0 do 5:" + recenica2.Substring(0,5).ToLower().Replace("");
+            */
+
+            //indexOf ima još jednu vrstu metode -> char index, npr da preskoči prvih 10 znakova pa onda traži
+            int indexSlova = recenica2.IndexOf('č');
+            int indexSlovaA = recenica2.IndexOf('a', 12);
+            int indexSlovaZ = recenica2.IndexOf('ž');
+
+
+            Console.WriteLine("Indeks slova 'č' je: " + indexSlova);
+            //AKO NEMA TOG SLOVA ONDA ĆE IZBACITI -1
+            Console.WriteLine("Indeks slova 'ž' je: " + indexSlovaZ);
+            Console.WriteLine("Indeks slova 'a' nakon 12 znakova je: " + indexSlovaA);
+
+            //split je uvod u sljedeću tematiku a to su nizovi
+
+            //Split metoda - prema ovo mprimjeru nova riječ ide nakon svakog razmaka i prima char kao separator pa idu jednostruki navodnici, neda spremiti u string jer split metoda vrača array -> niz -> []
+            string recenica3 = "Ispis svake riječi u novi red";
+            string [] rijeci = recenica3.Split(' ');
+
+            Console.WriteLine("Ispis svake riječi u novi red: \n");
+
+            for (int rijecIndex = 0; rijecIndex < rijeci.Length; rijecIndex++)
+            {
+                Console.WriteLine("Index riječi na index {0}", rijecIndex);
+                Console.WriteLine(rijeci[rijecIndex]);
+            }
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+        //public static void Branch(string[] args)
+        //{
+        ////otvoren novi skoup - raspon, okvir i tu može imati ime varijable kao što je u prethodnom    
+
+
+        //}
+
+    }
+}
