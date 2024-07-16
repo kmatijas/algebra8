@@ -123,7 +123,7 @@ namespace metode
             Console.WriteLine(recenica2.Substring(0,5));
 
             /* ovo nisam stigla do kraja
-             * Console.WriteLine("Ispiši članove od 0 do 5:" + recenica2.Substring(0,5).ToLower().Replace("");
+             * Console.WriteLine("Ispiši članove od 0 do 5:" + recenica2.Substring(0,5).ToLower().Replace("O". "P");
             */
 
             //indexOf ima još jednu vrstu metode -> char index, npr da preskoči prvih 10 znakova pa onda traži
